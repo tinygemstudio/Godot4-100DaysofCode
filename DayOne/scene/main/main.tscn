@@ -1,3 +1,72 @@
-[gd_scene format=3 uid="uid://xienmvf8hdpj"]
+[gd_scene load_steps=6 format=3 uid="uid://xienmvf8hdpj"]
+
+[ext_resource type="Script" path="res://scene/main/main.gd" id="1_j4t4d"]
+[ext_resource type="PackedScene" uid="uid://d0s3q553vry84" path="res://scene/square/square.tscn" id="1_vjee3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1j2t"]
+font_size = 32
+font_color = Color(0.996078, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pfl3y"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1wxi"]
+font_size = 48
 
 [node name="main" type="Node"]
+script = ExtResource("1_j4t4d")
+
+[node name="target" parent="." instance=ExtResource("1_vjee3")]
+position = Vector2(533, 274)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0000"
+label_settings = SubResource("LabelSettings_c1j2t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 263.0
+offset_right = 982.0
+offset_bottom = 351.0
+text = "PRESS SPACE TO PLAY..."
+label_settings = SubResource("LabelSettings_pfl3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 178.0
+offset_right = 861.0
+offset_bottom = 245.0
+text = "CATCH THE YELLOW GUY"
+label_settings = SubResource("LabelSettings_l1wxi")
