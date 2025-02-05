@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4xe7b65bchjw"]
+
+[ext_resource type="Script" path="res://scene/main/main.gd" id="1_3imqg"]
+[ext_resource type="AudioStream" uid="uid://bgqkq0nmu1uls" path="res://assets/dead.mp3" id="2_81qt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbjqw"]
+size = Vector2(1152, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0hx"]
+size = Vector2(2, 658)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f10ci"]
+font_size = 32
+font_color = Color(0.947199, 0.947199, 0.947199, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2vwq"]
+font_size = 32
+font_color = Color(0.298039, 1, 0, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3imqg")
+
+[node name="wall_holder" type="Node" parent="."]
+
+[node name="wall1" type="Area2D" parent="wall_holder" groups=["wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_holder/wall1"]
+position = Vector2(576, -2)
+shape = SubResource("RectangleShape2D_tbjqw")
+
+[node name="wall2" type="Area2D" parent="wall_holder" groups=["wall"]]
+position = Vector2(0, 652)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_holder/wall2"]
+position = Vector2(576, -2)
+shape = SubResource("RectangleShape2D_tbjqw")
+
+[node name="death_wall" type="Node" parent="."]
+
+[node name="d1" type="Area2D" parent="death_wall" groups=["death"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_wall/d1"]
+position = Vector2(-1, 319)
+shape = SubResource("RectangleShape2D_pn0hx")
+
+[node name="d2" type="Area2D" parent="death_wall" groups=["c_death"]]
+position = Vector2(1154, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_wall/d2"]
+position = Vector2(-1, 319)
+shape = SubResource("RectangleShape2D_pn0hx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 160.0
+offset_right = 833.0
+offset_bottom = 484.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 123.0
+offset_right = 447.0
+offset_bottom = 168.0
+text = "PRESS SPACE TO START"
+label_settings = SubResource("LabelSettings_f10ci")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 166.0
+offset_right = 446.0
+offset_bottom = 211.0
+text = "vs AI"
+label_settings = SubResource("LabelSettings_f10ci")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 220.0
+offset_right = 443.0
+offset_bottom = 265.0
+text = "use w,s"
+label_settings = SubResource("LabelSettings_f10ci")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 29.0
+offset_right = 433.0
+offset_bottom = 117.0
+label_settings = SubResource("LabelSettings_n2vwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_81qt5")

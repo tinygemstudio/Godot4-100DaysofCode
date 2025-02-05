@@ -23,6 +23,7 @@ const SCORE = preload("res://assets/score.mp3")
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
+	get_tree().get_root().size_changed.connect(_on_window_size_changed)
 	set_process(false)
 	#_start_game()
 
@@ -98,7 +99,7 @@ func _start_game()->void:
 	_dy = 5
 	_is_running = true
 	control.visible = false
-	get_tree().get_root().size_changed.connect(_on_window_size_changed)
+	
 	_screen_size = get_viewport().get_visible_rect().size
 	target.position = Vector2(_screen_size.x/2,_screen_size.y/2)
 	label.text = "0"

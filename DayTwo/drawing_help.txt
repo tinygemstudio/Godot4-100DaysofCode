@@ -1,0 +1,32 @@
+Line and Shape Drawing
+
+	draw_line(from, to, color, width=1.0, antialiased=false)
+	draw_polyline(points, color, width=1.0, antialiased=false)
+	draw_polyline_colors(points, colors, width=1.0, antialiased=false)
+	draw_multiline(points, color, width=1.0, antialiased=false)
+	draw_multiline_colors(points, colors, width=1.0, antialiased=false)
+	draw_arc(center, radius, start_angle, end_angle, point_count, color, width=1.0, antialiased=false)
+	draw_circle(center, radius, color)
+	draw_rect(rect, color, filled=true, width=1.0)
+	draw_rounded_rect(rect, radius, color, filled=true, width=1.0)
+	draw_triangle(a, b, c, color)
+	draw_polygon(points, colors, uvs=[], texture=null, normal_map=null, antialiased=false)
+	draw_colored_polygon(points, color, uvs=[], texture=null, normal_map=null, antialiased=false)
+	draw_texture_rect(texture, rect, tile=false, modulate=Color(1, 1, 1, 1), transpose=false)
+	draw_texture_rect_region(texture, rect, src_rect, modulate=Color(1, 1, 1, 1), transpose=false, clip_uv=true)
+
+Text Drawing
+
+	draw_string(font, position, text, h_align=HORIZONTAL_ALIGNMENT_LEFT, width=-1, font_size=0, modulate=Color(1,1,1,1), justification_flags=0, direction=0, orientation=0)
+
+Texture and Image Drawing
+
+	draw_texture(texture, position, modulate=Color(1, 1, 1, 1))
+	draw_texture_region(texture, position, region, modulate=Color(1, 1, 1, 1), transpose=false)
+	draw_set_transform(position, rotation=0.0, scale=Vector2(1,1))
+
+Custom Drawing Helpers
+
+	draw_char(font, position, char, next_position, font_size=0, modulate=Color(1,1,1,1), outline_size=0, outline_modulate=Color(0,0,0,1))
+	draw_mesh(mesh, texture=null, normal_map=null, transform=Transform2D(), modulate=Color(1,1,1,1))
+	draw_multimesh(multimesh)
