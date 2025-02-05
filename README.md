@@ -6,6 +6,7 @@ I'll be building various projects and learning new concepts with Godot. This REA
 ###### Day 1 - Drawing with Code and Mouse Input Detection with Raycast  
 - **Goal**: Learn how to draw shapes using code and detect mouse input with raycasting.
 - **Date** feb 04, 2025
+- note:did not use raycast
 
 ###### Day 2 - ----
 ...
