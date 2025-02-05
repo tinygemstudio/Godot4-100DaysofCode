@@ -7,7 +7,7 @@ var _y:int = 70
 var _rect:Rect2 = Rect2(-5, -35, _x, _y)
 var is_player:bool = false
 var _temp_pos:float
-@export var _speed:float = 300
+@export var _speed:float = 500
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 			if ball.position.x > get_viewport().size.x/2:
 				if position.y > 35 or position.y < _temp_pos:
 					position.y = lerp(position.y, ball.position.y, 0.1)
+			
 					
 func game_over()->void:
 	queue_free()
@@ -41,3 +42,4 @@ func game_over()->void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("ball"):
 		audio_stream_player_2d.play()
+		area.increase_speed()

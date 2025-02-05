@@ -1,10 +1,9 @@
 extends Area2D
 
-var _speed:int = 250
+var _speed:int = 300
 var _dx:int = [-1, 1].pick_random()
 var _dy:int = 1
 signal on_dead(value:bool)
-
 func _process(delta: float) -> void:
 	position.x += _dx*_speed*delta
 	position .y -= _dy*_speed*delta
@@ -29,4 +28,8 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 		
 func increase_speed()->void:
-	_speed += 50
+	_speed += 10
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	on_dead.emit(true)

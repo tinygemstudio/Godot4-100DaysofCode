@@ -8,5 +8,5 @@ I'll be building various projects and learning new concepts with Godot. This REA
 - **Date** feb 04, 2025
 - note:did not use raycast
 
-###### Day 2 - ----
+###### Day 2 - Pong
 ...
