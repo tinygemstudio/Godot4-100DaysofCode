@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=3 uid="uid://djkn5nkmac6eh"]
+
+[ext_resource type="Script" path="res://scene/player/player.gd" id="1_iqh21"]
+[ext_resource type="Texture2D" uid="uid://qgh11jiec1km" path="res://assets/1bitassetrokctboy.png" id="1_w12ny"]
+[ext_resource type="AudioStream" uid="uid://cl120485pqsny" path="res://assets/score.mp3" id="3_0qfl2"]
+[ext_resource type="AudioStream" uid="uid://go8e3hwmb5s0" path="res://assets/rocket_engine.001.wav" id="4_8dla2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kgw7"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am34p"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx0ec"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuggy"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcy8m"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpxyu"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqhbq"]
+atlas = ExtResource("1_w12ny")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_je1fu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kgw7")
+}],
+"loop": false,
+"name": &"flying",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am34p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx0ec")
+}],
+"loop": false,
+"name": &"landing",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuggy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcy8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpxyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqhbq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohqc3"]
+size = Vector2(6, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3q7o"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtn4n"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="player" type="Area2D" groups=["player"]]
+script = ExtResource("1_iqh21")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_je1fu")
+animation = &"walking"
+autoplay = "landing"
+
+[node name="footsnow" type="CPUParticles2D" parent="AnimatedSprite2D"]
+position = Vector2(-1, 8)
+amount = 6
+explosiveness = 0.13
+particle_flag_align_y = true
+direction = Vector2(-1, -0.5)
+spread = 5.06
+gravity = Vector2(0, 200)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = 50.0
+angular_velocity_max = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_ohqc3")
+
+[node name="jetsnow" type="CPUParticles2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-4, 2)
+emitting = false
+amount = 20
+lifetime = 0.2
+damping_min = 20.0
+damping_max = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="deathparicles" type="CPUParticles2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-3, 0)
+emitting = false
+amount = 500
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0qfl2")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 3
+y_sort_enabled = true
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_e3q7o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vtn4n")
+value = 100.0
+show_percentage = false
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-4, 1)
+stream = ExtResource("4_8dla2")
+
+[node name="bullethoder" type="Node2D" parent="."]
+position = Vector2(-4, 1)

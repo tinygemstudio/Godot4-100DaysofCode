@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2cc7rud66gr5"]
+
+[ext_resource type="Script" path="res://scene/main/main.gd" id="1_64imy"]
+[ext_resource type="PackedScene" uid="uid://bu6ol6146jel4" path="res://scene/floor/floor.tscn" id="1_yxv70"]
+[ext_resource type="AudioStream" uid="uid://dl51l5rajnt3" path="res://assets/wind woosh loop.ogg" id="3_s3jjq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jgini"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_ginki"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="main" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_64imy")
+
+[node name="floor" parent="." instance=ExtResource("1_yxv70")]
+position = Vector2(0, 212)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="heartTimer" type="Timer" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(423, -19)
+rotation = -0.734784
+amount = 4000
+speed_scale = 0.5
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(-1, 0)
+spread = 48.51
+gravity = Vector2(0, 200)
+initial_velocity_min = 988.76
+initial_velocity_max = 1000.0
+angular_velocity_min = 200.0
+angular_velocity_max = 300.0
+
+[node name="welcome" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="welcome"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 215.0
+
+[node name="Label" type="Label" parent="welcome/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 41.0
+offset_right = 324.0
+offset_bottom = 64.0
+text = " SURVIVE THE WAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highscorelabel" type="Label" parent="welcome/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 89.0
+offset_top = 138.0
+offset_right = 311.0
+offset_bottom = 161.0
+text = "BEST ATTEMPT 0000m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instext" type="Label" parent="welcome/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 160.0
+offset_right = 376.0
+offset_bottom = 183.0
+text = "USE JETPACK, SAFELY DESTROY CHOPPERS,SURVIVE "
+label_settings = SubResource("LabelSettings_jgini")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="welcome"]
+self_modulate = Color(0.000113828, 0.000113828, 0.000113828, 1)
+layout_mode = 0
+offset_left = 147.0
+offset_top = 90.0
+offset_right = 229.0
+offset_bottom = 121.0
+text = "START"
+
+[node name="scorelabel" type="Label" parent="."]
+visible = false
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 58.0
+offset_bottom = 28.0
+text = "0000m"
+label_settings = SubResource("LabelSettings_ginki")
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s3jjq")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="heartTimer" to="." method="_on_heart_timer_timeout"]
+[connection signal="pressed" from="welcome/Button" to="." method="_on_button_pressed"]
