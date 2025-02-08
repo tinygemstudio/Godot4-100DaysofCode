@@ -8,6 +8,9 @@ I'll be building various projects and learning new concepts with Godot. This REA
 - **Date** feb 04, 2025
 - note:did not use raycast
 
-###### Day 2 - Pong
+###### Day 2 - Pong 
+[https://20_games_challenge.gitlab.io/challenge/]
+
 ###### Day 3-5 - JET PACK GAME
+[https://20_games_challenge.gitlab.io/challenge/]
 ...
