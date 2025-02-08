@@ -9,4 +9,5 @@ I'll be building various projects and learning new concepts with Godot. This REA
 - note:did not use raycast
 
 ###### Day 2 - Pong
+###### Day 3-5 - JET PACK GAME
 ...
