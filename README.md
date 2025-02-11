@@ -9,5 +9,8 @@ I'll be building various projects and learning new concepts with Godot. This REA
 - note:did not use raycast
 
 ###### Game 2 - Pong
-###### Game 3-5 - JET PACK GAME
+[https://20_games_challenge.gitlab.io/challenge/]
+
+###### Game 3 - JET PACK GAME
+[https://20_games_challenge.gitlab.io/challenge/]
 ...
