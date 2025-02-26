@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://bredqo3h2d0as"]
+
+[ext_resource type="Script" path="res://scenes/ball/ball.gd" id="1_4mue2"]
+[ext_resource type="Texture2D" uid="uid://j2dqyd54y8n6" path="res://assets/44.png" id="1_kp40j"]
+[ext_resource type="AudioStream" uid="uid://dkrwmi58ii4ja" path="res://assets/Hit.wav" id="3_0r5wa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_73r6k"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n37xj"]
+radius = 31.0644
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hasm"]
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+
+[node name="Ball" type="RigidBody2D" groups=["ball"]]
+z_index = 2
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_73r6k")
+sleeping = true
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_4mue2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1.5, 0)
+scale = Vector2(0.35567, 0.4)
+texture = ExtResource("1_kp40j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(1, -3)
+shape = SubResource("CircleShape2D_n37xj")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -142.0
+offset_right = 19.0
+offset_bottom = -119.0
+label_settings = SubResource("LabelSettings_2hasm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+z_index = 2
+y_sort_enabled = true
+emitting = false
+amount = 16
+lifetime = 0.12
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 211.11
+initial_velocity_max = 1000.0
+angular_velocity_min = 60.0
+angular_velocity_max = 340.0
+linear_accel_min = 22.22
+linear_accel_max = 91.67
+radial_accel_min = 53.98
+radial_accel_max = 53.98
+tangential_accel_min = 0.55
+tangential_accel_max = 0.55
+damping_min = 25.0
+damping_max = 25.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color = Color(1, 1, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0r5wa")
+volume_db = 20.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

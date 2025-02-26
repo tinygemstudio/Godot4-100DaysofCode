@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=4 uid="uid://b74adcq00oqum"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_5vp3a"]
+[ext_resource type="Texture2D" uid="uid://d18oysefo4d2l" path="res://assets/grass.png" id="3_aj51i"]
+[ext_resource type="PackedScene" uid="uid://d0afpb5cdcxua" path="res://scenes/woodblock/wood_block.tscn" id="4_ivxgq"]
+[ext_resource type="Texture2D" uid="uid://bqc0d1hl7fuov" path="res://assets/colored_land.png" id="5_n52o8"]
+[ext_resource type="Texture2D" uid="uid://bu3cv2ihrwixo" path="res://assets/33.png" id="6_i2ybq"]
+[ext_resource type="Texture2D" uid="uid://dvlwwt0kmf40s" path="res://assets/restart.png" id="6_u18ow"]
+[ext_resource type="AudioStream" uid="uid://cbm657q0c044c" path="res://assets/birdsong.wav" id="7_0wrtv"]
+[ext_resource type="AudioStream" uid="uid://bimfw5b5bp57r" path="res://assets/stretch2.ogg" id="8_21ru3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtd7k"]
+size = Vector2(53, 107)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4hdh"]
+texture = ExtResource("3_aj51i")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
+
+[sub_resource type="TileSet" id="TileSet_iwbkt"]
+tile_size = Vector2i(70, 70)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f4hdh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kiklr"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5vp3a")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575, 332)
+scale = Vector2(1.16211, 0.677734)
+texture = ExtResource("5_n52o8")
+
+[node name="Tower" type="Node2D" parent="."]
+
+[node name="WoodBlock" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1113, 550)
+
+[node name="WoodBlock9" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1065, 406)
+
+[node name="WoodBlock7" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1041, 478)
+
+[node name="WoodBlock8" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1089, 478)
+
+[node name="WoodBlock2" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1069, 550)
+
+[node name="WoodBlock3" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1023, 550)
+
+[node name="WoodBlock4" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1095, 514)
+rotation = 1.5708
+
+[node name="WoodBlock5" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1040, 514)
+rotation = 1.5708
+
+[node name="WoodBlock6" parent="Tower" instance=ExtResource("4_ivxgq")]
+position = Vector2(1065, 441)
+rotation = 1.5708
+
+[node name="Slingshot" type="Node2D" parent="."]
+position = Vector2(1, 60)
+
+[node name="rope1" type="Line2D" parent="Slingshot"]
+position = Vector2(-1, -60)
+points = PackedVector2Array(206, 478, 170, 484)
+default_color = Color(0.298039, 0.164706, 0, 1)
+
+[node name="rope2" type="Line2D" parent="Slingshot"]
+y_sort_enabled = true
+position = Vector2(-1, -60)
+points = PackedVector2Array(146, 477, 174, 485)
+default_color = Color(0.299482, 0.165137, 9.62615e-08, 1)
+
+[node name="33" type="Sprite2D" parent="Slingshot"]
+position = Vector2(166, 462)
+scale = Vector2(0.896, 0.626)
+texture = ExtResource("6_i2ybq")
+
+[node name="34" type="Sprite2D" parent="Slingshot"]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(182, 462)
+scale = Vector2(0.896, 0.626)
+texture = ExtResource("6_i2ybq")
+flip_h = true
+
+[node name="BallBase" type="StaticBody2D" parent="Slingshot"]
+position = Vector2(-1, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slingshot/BallBase"]
+position = Vector2(174, 564)
+shape = SubResource("RectangleShape2D_wtd7k")
+
+[node name="BallBox" type="Marker2D" parent="Slingshot"]
+position = Vector2(169, 497)
+
+[node name="Floor" type="TileMapLayer" parent="."]
+z_index = 100
+position = Vector2(-16, 17)
+tile_map_data = PackedByteArray("AAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_iwbkt")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 319.0
+offset_top = 69.0
+offset_right = 819.0
+offset_bottom = 569.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -101.0
+offset_right = 185.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME-OVER"
+label_settings = SubResource("LabelSettings_kiklr")
+
+[node name="Button" type="Button" parent="Panel"]
+modulate = Color(0, 1, 0.231373, 1)
+self_modulate = Color(0.0470588, 1, 0, 1)
+layout_mode = 0
+offset_left = 191.0
+offset_top = 246.0
+offset_right = 319.0
+offset_bottom = 350.0
+icon = ExtResource("6_u18ow")
+icon_alignment = 1
+expand_icon = true
+
+[node name="bgsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0wrtv")
+autoplay = true
+
+[node name="stretchsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_21ru3")
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

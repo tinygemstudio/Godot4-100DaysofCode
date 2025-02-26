@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0afpb5cdcxua"]
+
+[ext_resource type="Script" path="res://scenes/woodblock/wood_block.gd" id="1_1ivsi"]
+[ext_resource type="Texture2D" uid="uid://bceixwjyg1sxx" path="res://assets/elementWood019.png" id="1_jjn6f"]
+[ext_resource type="AudioStream" uid="uid://c6adl76e32f4g" path="res://assets/Wood Hits 2.wav" id="3_altcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkiqb"]
+size = Vector2(18, 54.5)
+
+[node name="WoodBlock" type="RigidBody2D" groups=["woodblock"]]
+z_index = 2
+y_sort_enabled = true
+mass = 5.0
+script = ExtResource("1_1ivsi")
+
+[node name="WoodSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jjn6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_jkiqb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+self_modulate = Color(0.682353, 0.462745, 0.25098, 1)
+z_index = 3
+y_sort_enabled = true
+emitting = false
+lifetime = 0.12
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -145.62
+angular_velocity_max = 48.54
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_altcp")
+volume_db = 20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
