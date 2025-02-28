@@ -19,6 +19,7 @@ boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://assets/1bitassetrokctboy.png"
 boot_splash/fullsize=false
 config/icon="res://assets/1bitassetrokctboy.png"
+config/tags=PackedStringArray("challange")
 
 [autoload]
 

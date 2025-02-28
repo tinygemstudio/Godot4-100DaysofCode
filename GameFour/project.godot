@@ -19,6 +19,7 @@ boot_splash/image="res://assets/alienYellow_round.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://assets/alienYellow_round.png"
+config/tags=PackedStringArray("challange")
 
 [autoload]
 
