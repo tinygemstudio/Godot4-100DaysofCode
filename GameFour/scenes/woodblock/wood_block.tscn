@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0afpb5cdcxua"]
 
-[ext_resource type="Script" path="res://scenes/woodblock/wood_block.gd" id="1_1ivsi"]
+[ext_resource type="Script" uid="uid://brqwxyrubmcbv" path="res://scenes/woodblock/wood_block.gd" id="1_1ivsi"]
 [ext_resource type="Texture2D" uid="uid://bceixwjyg1sxx" path="res://assets/elementWood019.png" id="1_jjn6f"]
 [ext_resource type="AudioStream" uid="uid://c6adl76e32f4g" path="res://assets/Wood Hits 2.wav" id="3_altcp"]
 

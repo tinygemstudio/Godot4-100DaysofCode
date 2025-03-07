@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj6n8lbo35v72"]
+
+[ext_resource type="Texture2D" uid="uid://418v6g63jypo" path="res://assets/card_selected.png" id="1_bej84"]
+[ext_resource type="Script" uid="uid://kwxm1r5jqj1c" path="res://scenes/slot/slot.gd" id="1_n2dqc"]
+[ext_resource type="Texture2D" uid="uid://dqs5lxsqrtude" path="res://assets/green_selected.png" id="3_8ml81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ml81"]
+size = Vector2(133, 205)
+
+[node name="Slot" type="Node2D" groups=["slot"]]
+script = ExtResource("1_n2dqc")
+
+[node name="yellow" type="Sprite2D" parent="."]
+texture = ExtResource("1_bej84")
+centered = false
+
+[node name="green" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_8ml81")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(66.5, 102.5)
+shape = SubResource("RectangleShape2D_8ml81")
+disabled = true

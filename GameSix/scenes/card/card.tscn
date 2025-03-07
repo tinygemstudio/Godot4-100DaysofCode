@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmcpg60bwdkx1"]
+
+[ext_resource type="Texture2D" uid="uid://dv4b7hva2ud7f" path="res://assets/deck_1.png" id="1_qnn7r"]
+[ext_resource type="Script" uid="uid://browdqlmv7vk0" path="res://scenes/card/card.gd" id="1_vtcvk"]
+[ext_resource type="Texture2D" uid="uid://cwsu12np17w0i" path="res://assets/deck_3.png" id="3_g65cd"]
+[ext_resource type="Texture2D" uid="uid://418v6g63jypo" path="res://assets/card_selected.png" id="4_g65cd"]
+[ext_resource type="LabelSettings" uid="uid://mxydqsmi6kmw" path="res://assets/card_font.tres" id="5_2ufkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtcvk"]
+size = Vector2(129, 202)
+
+[node name="Card" type="Node2D" groups=["card"]]
+z_index = 2
+script = ExtResource("1_vtcvk")
+
+[node name="CardFace" type="Sprite2D" parent="."]
+position = Vector2(64, 101)
+texture = ExtResource("1_qnn7r")
+centered = false
+offset = Vector2(-64, -101)
+
+[node name="CardBack" type="Sprite2D" parent="."]
+position = Vector2(64, 101)
+texture = ExtResource("3_g65cd")
+centered = false
+offset = Vector2(-64, -101)
+
+[node name="selected" type="Sprite2D" parent="."]
+position = Vector2(64, 100)
+scale = Vector2(0.992481, 1)
+texture = ExtResource("4_g65cd")
+centered = false
+offset = Vector2(-64.4848, -100)
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+collision_layer = 32
+collision_mask = 32
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(64.5, 101)
+shape = SubResource("RectangleShape2D_vtcvk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 47.0
+offset_right = 121.0
+offset_bottom = 149.0
+text = "000"
+label_settings = ExtResource("5_2ufkr")
+horizontal_alignment = 1
+vertical_alignment = 1

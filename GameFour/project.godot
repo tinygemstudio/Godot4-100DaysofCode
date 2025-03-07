@@ -12,14 +12,14 @@ config_version=5
 
 config/name="GameFour"
 config/description="Physics game"
+config/tags=PackedStringArray("challange")
 run/main_scene="res://scenes/main/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://assets/alienYellow_round.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
+boot_splash/image="res://assets/alienYellow_round.png"
 config/icon="res://assets/alienYellow_round.png"
-config/tags=PackedStringArray("challange")
 
 [autoload]
 
