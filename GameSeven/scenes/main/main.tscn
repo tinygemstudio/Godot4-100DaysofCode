@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck0hqmjedvbjb"]
+
+[ext_resource type="FontFile" uid="uid://b64l285f4tdgo" path="res://assets/Geoform-Bold.otf" id="1_hyk8p"]
+[ext_resource type="Texture2D" uid="uid://bloc75dolt2dc" path="res://assets/bg.png" id="1_iuonh"]
+[ext_resource type="Theme" uid="uid://m7mgpv8sfwv1" path="res://assets/mainTheme.tres" id="1_k2fmo"]
+[ext_resource type="Script" uid="uid://e065dsx5621w" path="res://scenes/main/game.gd" id="2_l3cfh"]
+[ext_resource type="Texture2D" uid="uid://sv5gdqnad3hk" path="res://assets/buttons/check_round_grey_circle.png" id="3_ow5a4"]
+[ext_resource type="Script" uid="uid://d2kbfepttt7mr" path="res://scenes/main/fade.gd" id="5_6q06x"]
+
+[node name="Game" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k2fmo")
+script = ExtResource("2_l3cfh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBar" type="MenuBar" parent="MarginContainer"]
+layout_mode = 2
+flat = true
+
+[node name="File" type="PopupMenu" parent="MarginContainer/MenuBar"]
+item_count = 2
+item_0/text = "New Game"
+item_0/icon = ExtResource("3_ow5a4")
+item_0/id = 0
+item_1/text = "Exit"
+item_1/icon = ExtResource("3_ow5a4")
+item_1/id = 1
+
+[node name="Help" type="PopupMenu" parent="MarginContainer/MenuBar"]
+auto_translate_mode = 1
+
+[node name="Main" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k2fmo")
+
+[node name="BackGround" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iuonh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.333
+anchor_right = 0.5
+anchor_bottom = 0.333
+offset_left = -174.0
+offset_top = -25.0
+offset_right = 174.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.969137, 0.969137, 0.969137, 1)
+theme_override_colors/font_shadow_color = Color(0.101961, 0.101961, 0.101961, 0.490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = 7
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_hyk8p")
+theme_override_font_sizes/font_size = 49
+text = "HOT OR COLD"
+uppercase = true
+
+[node name="ButtonHolder" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 0.5
+anchor_bottom = 0.667
+offset_left = -101.5
+offset_top = -37.5
+offset_right = 101.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Main/ButtonHolder"]
+layout_mode = 2
+text = "START"
+
+[node name="QuitButton" type="Button" parent="Main/ButtonHolder"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="Fade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_6q06x")
+
+[connection signal="pressed" from="Main/ButtonHolder/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main/ButtonHolder/QuitButton" to="." method="_on_quit_button_pressed"]

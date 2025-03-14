@@ -3,11 +3,9 @@ extends Node2D
 const SLOT: PackedScene = preload("res://scenes/slot/slot.tscn")
 const SLOT_SIZE: Vector2 = Vector2(130, 202)
 const SLOT_SPACING: float = 20
-const HOME_SLOT_COUNT: int = 6
-const BATTLE_SLOT_COUNT: int = 5
 
 var screen_size: Vector2
-
+var slot_no:int
 @export var table:Panel
 
 enum SlotType {
@@ -45,30 +43,50 @@ func create_slots() -> void:
 			"slot_count": 4, 
 			"y_pos": (table.size.y - SLOT_SIZE.y) / 2, 
 			"col_mask": SlotType.NEUTRAL_BATTLE,
-			"is_col":false
+			"is_col":false,
+			"group":"battlefild"
 		},
 		{
 			"slot_count": 4, 
 			"y_pos": (table.size.y - SLOT_SIZE.y) - 10, 
 			"col_mask": SlotType.PLAYER_BATTLE,
-			"is_col":false
+			"is_col":false,
+			"group":"p_battlefild"
 		},
 		{
 			"slot_count": 4, 
 			"y_pos": 10, 
 			"col_mask": SlotType.COMPUTER_BATTLE,
-			"is_col":false
+			"is_col":false,
+			"group":"c_battlefild"
 		},
+		#{
+			#"slot_count": 8, 
+			#"y_pos": -202, 
+			#"col_mask": SlotType.COMPUTER_HOME,
+			#"is_col":false,
+			#"group":"c_home"
+		#},
+		#{
+			#"slot_count": 8, 
+			#"y_pos": table.size.y, 
+			#"col_mask": SlotType.PLAYER_HOME,
+			#"is_col":false,
+			#"group":"p_home"
+		#},
 	]
 	
 	
 	for config:Dictionary in slot_configurations:
 		var start_x: float = calculate_start_x(config["slot_count"])
-		
+		slot_no = 0
 		for i:int in range(config["slot_count"]):
 			var slot: Node2D = SLOT.instantiate()
 			var x_pos: float = start_x + (SLOT_SIZE.x + SLOT_SPACING) * i
 			slot.position = Vector2(x_pos, config["y_pos"])
+			slot.set_slot_no(slot_no)
+			slot_no += 1
 			slot.call_deferred("set_col_mask", config["col_mask"])
 			slot.call_deferred("set_col_shape", config["is_col"])
+			slot.add_to_group(config["group"])
 			table.add_child(slot)

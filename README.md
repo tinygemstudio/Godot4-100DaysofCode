@@ -13,7 +13,14 @@ I'll be building various projects and learning new concepts with Godot. This REA
 
 ###### Game 3 - JET PACK GAME
 [https://20_games_challenge.gitlab.io/challenge/]
-...
 ###### Game 4 - ANGRY BALL GAME
-[**Date** feb 26, 2025
-...
+**Date** feb 26, 2025
+
+###### Game 5 - A poker game
+**unfinished**
+
+###### Game 6 - A simple deckbuilder game
+**created for 7DRL Challenge 2025 , too many bugs, no submission**
+
+###### Game 7 - UI game
+**for learning control nodes**

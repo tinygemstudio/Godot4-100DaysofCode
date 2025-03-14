@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm00b0d13qfft"]
+
+[ext_resource type="Script" uid="uid://c8imdjw0svk6q" path="res://scenes/computer_home/computer_home.gd" id="1_ch3bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q06x"]
+size = Vector2(1975, 130)
+
+[node name="ComputerHome" type="Node2D"]
+script = ExtResource("1_ch3bo")
+
+[node name="Area2D" type="Area2D" parent="." groups=["c_home"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(959, -841)
+shape = SubResource("RectangleShape2D_6q06x")

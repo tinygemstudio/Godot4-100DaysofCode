@@ -1,0 +1,144 @@
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://m7mgpv8sfwv1"]
+
+[ext_resource type="FontFile" uid="uid://b64l285f4tdgo" path="res://assets/Geoform-Bold.otf" id="1_kwfvg"]
+[ext_resource type="Texture2D" uid="uid://cf3m8nn0gs6s6" path="res://assets/buttons/button_rectangle_depth_border.png" id="2_6elo3"]
+[ext_resource type="Texture2D" uid="uid://bgorfma40qo4b" path="res://assets/buttons/button_rectangle_depth_line.png" id="3_amo77"]
+[ext_resource type="Texture2D" uid="uid://c4oin3m28uwuc" path="res://assets/buttons/button_rectangle_depth_gloss.png" id="4_jdpb8"]
+[ext_resource type="Texture2D" uid="uid://bwtdlqcicjruw" path="res://assets/buttons/icon_outline_square.png" id="5_6elo3"]
+[ext_resource type="Texture2D" uid="uid://dipv1tavc0xf7" path="res://assets/buttons/button_rectangle_line.png" id="6_amo77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ow5a4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hujxm"]
+content_margin_left = 49.0
+content_margin_top = 21.0
+content_margin_right = 49.0
+content_margin_bottom = 21.0
+texture = ExtResource("2_6elo3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1x3f"]
+content_margin_left = 49.0
+content_margin_top = 21.0
+content_margin_right = 49.0
+content_margin_bottom = 21.0
+texture = ExtResource("3_amo77")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iuonh"]
+content_margin_left = 49.0
+content_margin_top = 21.0
+content_margin_right = 49.0
+content_margin_bottom = 21.0
+texture = ExtResource("4_jdpb8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyfjg"]
+content_margin_left = 49.0
+content_margin_top = 21.0
+content_margin_right = 49.0
+content_margin_bottom = 21.0
+texture = ExtResource("3_amo77")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6elo3"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6elo3"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.123625, 0.157091, 0.30068, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amo77"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amo77"]
+texture = ExtResource("5_6elo3")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 37.0
+texture_margin_bottom = 37.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6elo3"]
+texture = ExtResource("6_amo77")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+
+[resource]
+default_font = ExtResource("1_kwfvg")
+default_font_size = 21
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 1
+Button/constants/h_separation = 7
+Button/constants/icon_max_width = 28
+Button/constants/outline_size = 7
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_kwfvg")
+Button/styles/focus = SubResource("StyleBoxEmpty_ow5a4")
+Button/styles/hover = SubResource("StyleBoxTexture_hujxm")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_b1x3f")
+Button/styles/normal = SubResource("StyleBoxTexture_iuonh")
+Button/styles/pressed = SubResource("StyleBoxTexture_yyfjg")
+MarginContainer/constants/margin_bottom = 28
+MarginContainer/constants/margin_left = 28
+MarginContainer/constants/margin_right = 28
+MarginContainer/constants/margin_top = 28
+MenuBar/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+MenuBar/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+MenuBar/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+MenuBar/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+MenuBar/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+MenuBar/colors/font_outline_color = Color(0, 0, 0, 1)
+MenuBar/colors/font_pressed_color = Color(1, 1, 1, 1)
+MenuBar/constants/h_separation = 7
+MenuBar/constants/outline_size = 7
+MenuBar/styles/disabled = SubResource("StyleBoxEmpty_6elo3")
+MenuBar/styles/hover = SubResource("StyleBoxFlat_6elo3")
+MenuBar/styles/hover_pressed = SubResource("StyleBoxFlat_amo77")
+MenuBar/styles/normal = SubResource("StyleBoxEmpty_6elo3")
+MenuBar/styles/pressed = SubResource("StyleBoxFlat_amo77")
+Panel/styles/panel = SubResource("StyleBoxTexture_amo77")
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/title_color = Color(0, 0, 0, 1)
+PopupMenu/colors/title_outline_modulate = Color(0, 0, 0, 1)
+PopupMenu/constants/h_separation = 7
+PopupMenu/constants/icon_max_width = 32
+PopupMenu/constants/item_end_padding = 4
+PopupMenu/constants/item_start_padding = 4
+PopupMenu/constants/outline_size = 7
+PopupMenu/constants/v_separation = 7
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_6elo3")
+VBoxContainer/constants/separation = 12

@@ -13,13 +13,13 @@ config_version=5
 config/name="Survivor"
 config/description="A person trying to survive a war in harsh winter condition"
 config/version="0.0.1"
+config/tags=PackedStringArray("challange")
 run/main_scene="res://scene/main/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://assets/1bitassetrokctboy.png"
 boot_splash/fullsize=false
 config/icon="res://assets/1bitassetrokctboy.png"
-config/tags=PackedStringArray("challange")
 
 [autoload]
 

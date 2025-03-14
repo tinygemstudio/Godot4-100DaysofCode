@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv3vohxc8ghy5"]
+
+[ext_resource type="Script" uid="uid://f4vksvo5u061" path="res://scenes/mainui/mainui.gd" id="1_6dmi0"]
+[ext_resource type="Texture2D" uid="uid://buovynmc8jcif" path="res://assets/deck_3.png" id="1_al35n"]
+[ext_resource type="FontFile" uid="uid://cr0s8fmm618cl" path="res://assets/Geoform-Bold.otf" id="2_u07pr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dmi0"]
+font = ExtResource("2_u07pr")
+font_size = 112
+
+[node name="mainui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6dmi0")
+
+[node name="Deck6" type="Sprite2D" parent="."]
+position = Vector2(969, 990)
+texture = ExtResource("1_al35n")
+
+[node name="Deck3" type="Sprite2D" parent="."]
+position = Vector2(872, 1015)
+rotation = -0.388768
+texture = ExtResource("1_al35n")
+
+[node name="Deck7" type="Sprite2D" parent="."]
+position = Vector2(806, 1035)
+rotation = -0.388768
+texture = ExtResource("1_al35n")
+
+[node name="Deck4" type="Sprite2D" parent="."]
+position = Vector2(1081, 1002)
+rotation = 0.302539
+texture = ExtResource("1_al35n")
+
+[node name="Deck5" type="Sprite2D" parent="."]
+position = Vector2(1161, 1033)
+rotation = 0.591315
+texture = ExtResource("1_al35n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 163.0
+offset_right = 1890.0
+offset_bottom = 276.0
+text = "A SIMPLE DECK-BUILDING GAME"
+label_settings = SubResource("LabelSettings_6dmi0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 779.0
+offset_top = 685.0
+offset_right = 1141.0
+offset_bottom = 863.0
+theme_override_fonts/font = ExtResource("2_u07pr")
+theme_override_font_sizes/font_size = 72
+text = "QUIT"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 477.0
+offset_right = 1144.0
+offset_bottom = 655.0
+theme_override_fonts/font = ExtResource("2_u07pr")
+theme_override_font_sizes/font_size = 72
+text = "START"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

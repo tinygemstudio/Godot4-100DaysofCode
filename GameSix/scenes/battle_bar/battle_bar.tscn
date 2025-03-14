@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4uk8ps27ba84"]
+
+[ext_resource type="Script" uid="uid://t8re83oh0gea" path="res://scenes/battle_bar/battle_bar.gd" id="1_2sefm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fwrx"]
+bg_color = Color(1, 0, 0, 0.917647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sefm"]
+bg_color = Color(0.36375, 0.698797, 1.92523e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4mkt"]
+
+[node name="BattleBar" type="CanvasLayer"]
+script = ExtResource("1_2sefm")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 262.0
+offset_top = 895.0
+offset_right = 428.0
+offset_bottom = 1604.0
+rotation = 3.13956
+theme_override_styles/background = SubResource("StyleBoxFlat_3fwrx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2sefm")
+value = 50.0
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressBarCover" type="ProgressBar" parent="."]
+offset_left = 262.0
+offset_top = 895.0
+offset_right = 428.0
+offset_bottom = 1604.0
+rotation = 3.13956
+theme_override_styles/background = SubResource("StyleBoxFlat_x4mkt")
+fill_mode = 2
+show_percentage = false
