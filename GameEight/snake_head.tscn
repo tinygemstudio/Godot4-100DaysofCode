@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkd1oj5bmutuh"]
+
+[ext_resource type="Texture2D" uid="uid://6lgalowds5lk" path="res://asset/white.png" id="1_1ssvg"]
+[ext_resource type="Script" uid="uid://b8dtg4m7k8q4f" path="res://snake_head.gd" id="1_gkmwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkmwg"]
+size = Vector2(64, 64)
+
+[node name="SnakeHead" type="Node2D" groups=["head"]]
+script = ExtResource("1_gkmwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ssvg")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_gkmwg")
+
+[node name="SnakeSpeedTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="SnakeSpeedTimer" to="." method="_on_snake_speed_timer_timeout"]
